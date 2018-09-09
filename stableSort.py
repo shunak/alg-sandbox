@@ -7,10 +7,6 @@ import copy
 d = copy.deepcopy(c)
 default = copy.deepcopy(c)
 
-
-
-
-
 # card 
 # get partial str by "slice"
 
@@ -39,28 +35,129 @@ def selection(C_,N_):
 def getCommon(C_,N_):
     common=[]
     for i in range(N):
-        for j in range(i,N):
-            if C_[i][1:2]==C_[j][1:2] and i!=j:
+        for j in range(i+1,N):
+            if C_[i][1:2]==C_[j][1:2]:
                 common.append([C_[i],C_[j]])
-
-    for val in common:
-        ret = val
-
-    return ret
-
-
-b = bubble(c,N)
-a = selection(d,N)
-gc = getCommon(default,N)
+                break
 
 
 
+    # if common:
+    #     for val in common:
+    #         ret = val
+    # elif not common:
+    #     ret = common        
+
+    return common
+
+    
+
+# get gc num
+# gcn = gc[1][1:2]
+# print(gcn)
+
+def getOrder(x_,gc_):
+    # get each num
+    gcn = gc_[0][1:2]
+    order=[]
+    for i in range(len(x_)):
+        if x_[i][1:2]==gcn:
+            order.append(x_[i])
+    return order
+
+# if for k in range(lne())
+def judgeStability(alg_, eo_):
+    if alg_ == eo_:
+        print("Stable")    
+    else:
+        print("Not stable")
+
+b = bubble(c, N)
+s = selection(d, N)
+gc = getCommon(default, N)
+
+# print(gc)
+k=0
+count =0
+for i in range(len(gc)-k):
+    for j in range(i+1,len(gc)-k):
+        if gc[i][1]==gc[j][0]:
+            gc[i].extend(gc[j])
+            gc[j][0]=0
+            count+=1
+
+
+while count>0:
+    for val in gc:
+        if val[0]==0:
+            gc.remove(val)
+            count-=1
+
+# Think Another Way.
+# for val in gc:
+#     if val[0]==0:
+#         gc.remove(val)
+# 
+# def rem(gc_):
+#     for val in gc_:
+#         if val[0] == 0:
+#             gc_.remove(val)
+#     rem(gc_)
 
 
 
-print(a)
-print(b)
+
+
+
+
+
 print(gc)
+
+
+
+
+
+
+
+
+
+
+
+
+if gc:
+    beo = getOrder(b, gc)
+    seo = getOrder(s, gc)
+    
+    b = ' '.join(b)
+    s = ' '.join(s)
+
+    print(b)
+    judgeStability(beo, gc)
+    print(s)
+    judgeStability(seo, gc)
+else:
+
+    b = ' '.join(b)
+    s = ' '.join(s)
+
+    print(b)
+    print("Stable")
+    print(s)
+    print("Stable")
+
+
+
+
+
+
+
+
+
+
+
+# print(b)
+# print(s)
+# print(gc)
 
 
 
