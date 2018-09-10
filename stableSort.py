@@ -6,6 +6,7 @@ import copy
 # ポインタではなく、値を渡す
 d = copy.deepcopy(c)
 default = copy.deepcopy(c)
+t = copy.deepcopy(c)
 
 # card 
 # get partial str by "slice"
@@ -39,8 +40,6 @@ def getCommon(C_,N_):
             if C_[i][1:2]==C_[j][1:2]:
                 common.append([C_[i],C_[j]])
                 break
-
-
 
     # if common:
     #     for val in common:
@@ -76,6 +75,40 @@ b = bubble(c, N)
 s = selection(d, N)
 gc = getCommon(default, N)
 
+# S4 C4 H3 H4 S5 H5 D5 D3 S3
+# savekey = []
+# for i in range(N):
+#     for j in range(i+1,N):
+#         if t[i][1:2] == t[j][1:2]:
+#             t[j]=t[i]
+#             # savekey.append(t[i])
+#             # break
+
+# print(t)
+
+
+
+
+
+
+
+# print(gc)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # print(gc)
 k=0
 count =0
@@ -103,6 +136,16 @@ while count>0:
 #         if val[0] == 0:
 #             gc_.remove(val)
 #     rem(gc_)
+
+
+
+ngrp=[]
+for i in gc:
+   ngrp.append(list(dict.fromkeys(i)))
+
+
+print(ngrp)
+
 
 
 
