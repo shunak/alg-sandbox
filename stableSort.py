@@ -76,40 +76,8 @@ s = selection(d, N)
 gc = getCommon(default, N)
 
 # S4 C4 H3 H4 S5 H5 D5 D3 S3
-# savekey = []
-# for i in range(N):
-#     for j in range(i+1,N):
-#         if t[i][1:2] == t[j][1:2]:
-#             t[j]=t[i]
-#             # savekey.append(t[i])
-#             # break
 
-# print(t)
-
-
-
-
-
-
-
-# print(gc)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# print(gc)
+# summerize default array
 k=0
 count =0
 for i in range(len(gc)-k):
@@ -126,18 +94,6 @@ while count>0:
             gc.remove(val)
             count-=1
 
-# Think Another Way.
-# for val in gc:
-#     if val[0]==0:
-#         gc.remove(val)
-# 
-# def rem(gc_):
-#     for val in gc_:
-#         if val[0] == 0:
-#             gc_.remove(val)
-#     rem(gc_)
-
-
 
 ngrp=[]
 for i in gc:
@@ -146,6 +102,36 @@ for i in gc:
 
 print(ngrp)
 
+# bubble sort
+print(b)
+
+# print(getCommon(b,N))
+
+# summerize bubble sorted array
+nb = getCommon(b,N)
+
+# k=0
+for i in range(len(nb)-k):
+    for j in range(i+1, len(nb)-k):
+        if nb[i][1] == nb[j][0]:
+            nb[i].extend(nb[j])
+            nb[j][0] = 0
+            count += 1
+# print(nb)
+
+while count>0:
+    for val in nb:
+        if val[0]==0:
+            nb.remove(val)
+            count-=1
+
+# print(nb)
+
+nbgrp=[]
+for i in nb:
+   nbgrp.append(list(dict.fromkeys(i)))
+
+print(nbgrp)
 
 
 
@@ -154,7 +140,59 @@ print(ngrp)
 
 
 
-print(gc)
+
+
+
+
+
+
+
+
+
+
+# key=[]
+# ans = []
+# for i in range(len(b)-1):
+#     if b[i][1:2]!=b[i+1][1:2]:
+#         key.append(i)
+# print(key)
+
+# idx=0
+# for i in range(len(key)):
+#     for j in range(idx,key[i]+1):
+#         ans.append(b[j])
+
+
+
+# print(ans)
+
+
+# for k in range(l):
+#     key.append(b[k])
+
+
+    # if b[i][1:2] != b[i+1][1:2]:
+    #     key.append(b[i])
+
+
+
+
+
+        # for j in range(i):
+        #     key.append(b[i])
+
+# print(key)
+
+
+
+
+
+
+
+
+
+
+# print(gc)
 
 
 
@@ -187,6 +225,16 @@ else:
     print("Stable")
     print(s)
     print("Stable")
+
+
+
+
+
+
+
+
+
+
 
 
 
