@@ -108,6 +108,8 @@ print(b)
 # print(getCommon(b,N))
 
 # summerize bubble sorted array
+###############################
+
 nb = getCommon(b,N)
 
 # k=0
@@ -132,6 +134,37 @@ for i in nb:
    nbgrp.append(list(dict.fromkeys(i)))
 
 print(nbgrp)
+
+
+# summerize selection Sort
+##########################
+
+ns = getCommon(s,N)
+
+# k=0
+for i in range(len(ns)-k):
+    for j in range(i+1, len(ns)-k):
+        if ns[i][1] == ns[j][0]:
+            ns[i].extend(ns[j])
+            ns[j][0] = 0
+            count += 1
+# print(nb)
+
+while count>0:
+    for val in ns:
+        if val[0]==0:
+            ns.remove(val)
+            count-=1
+
+# print(nb)
+
+nsgrp=[]
+for i in ns:
+   nsgrp.append(list(dict.fromkeys(i)))
+
+print(nsgrp)
+
+# compare ngrp vs nbgrp vs nsgrp, 
 
 
 
