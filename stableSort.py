@@ -3,6 +3,7 @@ N=int(input())
 c = list(map(str, input().split()))
 # d = list(map(str, input().split()))
 import copy
+
 # ポインタではなく、値を渡す
 d = copy.deepcopy(c)
 default = copy.deepcopy(c)
@@ -103,7 +104,7 @@ for i in gc:
 print(ngrp)
 
 # bubble sort
-print(b)
+# print(b)
 
 # print(getCommon(b,N))
 
@@ -166,74 +167,24 @@ print(nsgrp)
 
 # compare ngrp vs nbgrp vs nsgrp, 
 
+for i in ngrp:
+    for j in nbgrp:
+        if i==j:
+            nbgrp.remove(j)
 
+for i in ngrp:
+    for j in nsgrp:
+        if i == j:
+            nsgrp.remove(j)
+            
+print(nbgrp)
+print(nsgrp)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-# key=[]
-# ans = []
-# for i in range(len(b)-1):
-#     if b[i][1:2]!=b[i+1][1:2]:
-#         key.append(i)
-# print(key)
-
-# idx=0
-# for i in range(len(key)):
-#     for j in range(idx,key[i]+1):
-#         ans.append(b[j])
-
-
-
-# print(ans)
-
-
-# for k in range(l):
-#     key.append(b[k])
-
-
-    # if b[i][1:2] != b[i+1][1:2]:
-    #     key.append(b[i])
-
-
-
-
-
-        # for j in range(i):
-        #     key.append(b[i])
-
-# print(key)
-
-
-
-
-
-
-
-
-
-
-# print(gc)
-
-
-
-
-
-
-
-
+def jdgstblity(x_):
+    if len(x_) == 0:
+        print("Stable")
+    else:
+        print("Not stable")
 
 
 
@@ -246,9 +197,9 @@ if gc:
     s = ' '.join(s)
 
     print(b)
-    judgeStability(beo, gc)
+    jdgstblity(nbgrp)
     print(s)
-    judgeStability(seo, gc)
+    jdgstblity(nsgrp)
 else:
 
     b = ' '.join(b)
@@ -260,6 +211,30 @@ else:
     print("Stable")
 
 
+
+
+
+
+# if gc:
+#     beo = getOrder(b, gc)
+#     seo = getOrder(s, gc)
+    
+#     b = ' '.join(b)
+#     s = ' '.join(s)
+
+#     print(b)
+#     judgeStability(beo, gc)
+#     print(s)
+#     judgeStability(seo, gc)
+# else:
+
+#     b = ' '.join(b)
+#     s = ' '.join(s)
+
+#     print(b)
+#     print("Stable")
+#     print(s)
+#     print("Stable")
 
 
 
@@ -372,7 +347,3 @@ else:
 
 
 # print(C)
-
-
-
-
