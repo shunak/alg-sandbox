@@ -1,7 +1,7 @@
 N=int(input())
 
 c = list(map(str, input().split()))
-# d = list(map(str, input().split()))
+
 import copy
 
 # ポインタではなく、値を渡す
