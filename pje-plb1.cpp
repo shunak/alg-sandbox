@@ -8,7 +8,7 @@ int main()
 {
     
     int n=1000,ans=0;
-    //sum of multiples of 3
+    //sum of multiples of 3 and multiples of 5
     rep(i,n){
         if(i%3==0 || i%5==0){
             ans+=i;
