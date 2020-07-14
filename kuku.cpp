@@ -10,6 +10,8 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <chrono>
+
 //macros
 #define lp(i,n) for(int i=0;i<n;i++)
 #define si(n) scanf("%lld",&n)
@@ -23,18 +25,29 @@ using namespace std;
 
 int main()
 {
-    ll i,j,n;
+    ll i,j,n,flag=0;
     scanf("%lld",&n);
+    chrono::system_clock::time_point start, end;
+
+    start = chrono::system_clock::now();
+
+    // 何かの処理
     for (i =1; i <=9; i++) {
         for (j = 1; j<=9;j++) {
             if (i*j==n) {
-                puts("Yes");
-                return 0;
+                flag=1;
             }
         }
     }
 
-    puts("No");
+    if(flag) puts("Yes");
+    else puts("No");
+
+    end = chrono::system_clock::now();
+
+    double time = static_cast<double>(chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000.0);
+    printf("time %lf[ms]\n", time);
+
     return 0;
 }
 
