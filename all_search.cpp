@@ -37,17 +37,15 @@ int main()
         for (B = 0; B+A<=N;B++) {
             C=N-A-B;
             if(10000*A+5000*B+1000*C==Y){
-                printf("%lld %lld %lld\n",A,B,C);
                 flag=1;
+                printf("%lld %lld %lld\n",A,B,C);
                 break;
             }
         }
-        if(flag)break;//caution!: when you break double loop, don't forget outer loop "break"
     }
 
-    if(flag) printf("%lld %lld %lld\n",A,B,C);
-    else puts("-1 -1 -1");
-
+    /* else puts("-1 -1 -1"); */
+    if(!flag)puts("No pattern");
     end = chrono::system_clock::now();
 
     double time = static_cast<double>(chrono::duration_cast<chrono::microseconds>(end - start).count() / 1000.0);
