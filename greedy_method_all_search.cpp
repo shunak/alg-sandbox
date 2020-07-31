@@ -7,7 +7,7 @@ int dfs(int remain, int K, int now){
     if (remain==0) return now;
     return min(dfs(remain-1, K, now*2),dfs(remain-1, K, now+K));
 }
-
+// dfs is founded by recursive. like fibonacchi sequence
 int main(){
     cin >> N;
     cin >> K;
