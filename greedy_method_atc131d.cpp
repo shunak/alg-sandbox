@@ -7,30 +7,29 @@ using namespace std;
 
 int main(){
     ll A[200000],B[200000];
-    int i, N;
-    scanf("%d",&N);
-
+    int i, N, Time=0;
 
     // input stdin one liner
+    cin >> N;
+    vector<pair<int,int>> task;
     for (int i = 0; i < N; i++) {
-        scanf("%lld",&A[i]);
+        int A,B;
+        cin >> A >> B;
+        task.emplace_back(B,A);
     }
-
-    for (int i = 0; i < N; i++) {
-        scanf("%lld",&B[i]);
-    }
-
-
-
+    // sort deadline array order by deadline
+    sort(task.begin(),task.end());
     // output
-    for (int i = 0; i < N; i++) {
-        printf("%lld ",A[i]);
+
+    for (int i=0; i<N; i++) {
+        Time+=task[i].second;// worktime
+        if (Time>task[i].first) { // cumulative worktime over limit time
+            puts("No");
+            return 0;
+        }
+        /* cout << Task.first << " " << Task.second << endl; */
     }
-    puts("");
-    for (int i = 0; i < N; i++) {
-        printf("%lld ",B[i]);
-    }
-    puts("");
+    puts("Yes");
 
 
     return 0;
