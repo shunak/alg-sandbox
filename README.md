@@ -5,7 +5,7 @@ experimental algorithm codes.
 ## Remarks
 
 if your environment c++ compiler generate error like<br>
-``_greedy_method_atc131d.cpp:18:14: error: no member named 'emplace_back' in 'std::__1::vector<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >'_``<br>
+_greedy_method_atc131d.cpp:18:14: error: no member named 'emplace_back' in 'std::__1::vector<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >'_<br>
 
 because your machine's compiler is not supporting C++11.<br>
 The ``emplace_back`` member function of ``std::vector<T>`` has been added since C++11<br>
