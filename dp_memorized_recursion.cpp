@@ -10,7 +10,7 @@ vector<int> H,moving_cost_from_here;
 
 // Return least moving cost from here to goal.
 int dfs(int pos){
-    if (pos >=N) return INF; // case out of range array
+    if (pos >=N) return INF; // case out of range array or last element.
     if (pos==N-1) return 0; // case last position, finish calculation.
     if (moving_cost_from_here[pos]!=-1) return moving_cost_from_here[pos]; // case calculated moving_cost_to_here
     // case on the way to calculating moving_cost_to_here
