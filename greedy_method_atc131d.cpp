@@ -11,7 +11,7 @@ int main(){
 
     // input stdin one liner
     cin >> N;
-    vector<pair<int,int>> task;
+    vector<pair<int,int> > task;
     for (int i = 0; i < N; i++) {
         int A,B;
         cin >> A >> B;
