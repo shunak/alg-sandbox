@@ -2,7 +2,7 @@
 
 experimental algorithm codes.
 
-## REMARKS
+## Remarks
 
 if your environment c++ compiler generate error like
 _greedy_method_atc131d.cpp:18:14: error: no member named 'emplace_back' in 'std::__1::vector<std::__1::pair<int, int>, std::__1::allocator<std::__1::pair<int, int> > >'_<br>
