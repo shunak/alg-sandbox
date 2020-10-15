@@ -23,11 +23,16 @@ int main(){
         C.__emplace_back(HAPPINESS);
     }
 
-    /* first_value=max(A[0],B[0],C[0]); */
+    first_value = A[0];
 
-    /* for(int i=1; i<N; i++){ */
+    if(first_value<B[0]){
+        first_value=B[0];
+    }
+    if(first_value<C[0]){
+        first_value=C[0];
+    }
 
-    /* } */
+
 
 
     /* for (int i=2; i<N;i++) { */
