@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 #define ll long long
+#define SIZE_OF_ARRAY(array)    (sizeof(array)/sizeof(array[0]))
 
 
 int R[100000][3],N,HAPPINESS,happiness_value=0,tmp=0,sub_max=0;
@@ -13,7 +14,7 @@ void calc_happiness(int t_happiness,int i,vector<int> PAIR_,vector<int> MEMO_){
 
     if(i<N){
 
-        /* printf("%d\n", t_happiness); */
+        printf("%d\n", t_happiness);
 
         if(t_happiness!=R[i][0]){//A
             PAIR_.__emplace_back(R[i+1][0]);
@@ -31,19 +32,13 @@ void calc_happiness(int t_happiness,int i,vector<int> PAIR_,vector<int> MEMO_){
             MEMO_.__emplace_back(R[i+1][2]);
         }
 
-        /* std::cout << (int)PAIR_.size() << std::endl; */
+        std::cout << (int)PAIR_.size() << std::endl;
 
         if((int)PAIR_.size()==1){
             sub_max=max(MEMO_[0],MEMO_[1]);
             PAIR_.__emplace_back(sub_max);
         }else if((int)PAIR_.size()==0){
             sub_max=MEMO_[0];
-            if(sub_max<MEMO_[1]){
-                sub_max=MEMO_[1];
-            }
-            if(sub_max<MEMO_[2]){
-                sub_max=MEMO_[2];
-            }
             PAIR_.__emplace_back(sub_max);
             PAIR_.__emplace_back(sub_max);
         }
@@ -82,7 +77,26 @@ int main(){
     calc_happiness(tmp,0,PAIR,MEMO);
 
     printf("%d\n",happiness_value);
+
+    /*     for(int i = 0; i<N; i++){ */
+    /*         for(int j = 0; j<3; j++){ */
+    /*             printf("%d\n",R[i][j]); */
+    /*         } */
+    /*     } */
+
+    /* printf("%d\n",moving_cost_to_here[N-1]); */
+    /* puts("-----"); */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",A[i]); */
+    /* } */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",B[i]); */
+    /* } */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",C[i]); */
+    /* } */
     return 0;
+    // Dynamic Planning method is like a Recurrence formula.
 
 }
 
