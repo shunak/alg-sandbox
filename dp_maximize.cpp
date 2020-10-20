@@ -5,11 +5,11 @@ using namespace std;
 #define ll long long
 
 int main(){
-    int N,HAPPINESS,happiness_value=0,first_value=0;
+    int tmp=0,N,HAPPINESS,happiness_value=0,first_value=0;
 
     // input stdin one liner
     cin >> N;
-    vector<int> A,B,C,PAIR;
+    vector<int> A,B,C,PAIR,sel;
     for (int i=0; i<N; i++) {
         cin >> HAPPINESS;
         A.__emplace_back(HAPPINESS);
@@ -31,27 +31,51 @@ int main(){
     if(first_value<C[0]){
         first_value=C[0];
     }
+    happiness_value+=first_value;
 
+    if(first_value!=A[0]){
+        PAIR.__emplace_back(A[1]);
+    }
+    if(first_value!=B[0]){
+        PAIR.__emplace_back(B[1]);
+    }
+    if(first_value!=C[0]){
+        PAIR.__emplace_back(C[1]);
+    }
 
+    tmp=max(PAIR[0],PAIR[1]);
+    happiness_value+=tmp;
 
+    PAIR.erase(PAIR.begin(),PAIR.end());
 
-    /* for (int i=2; i<N;i++) { */
-    /*     int step1_move_cost = moving_cost_to_here[i-1] + abs(H[i]-H[i-1]); // moving cost of before 1cell */
-    /*     int step2_move_cost = moving_cost_to_here[i-2] + abs(H[i]-H[i-2]); // moving cost of before 2cells */
-    /*     moving_cost_to_here[i] = min(step1_move_cost,step2_move_cost); // least moving cost value until here */
-    /* } */
+    if(tmp!=A[1]){
+        PAIR.__emplace_back(A[2]);
+    }
+    if(tmp!=B[1]){
+        PAIR.__emplace_back(B[2]);
+    }
+    if(tmp!=C[1]){
+        PAIR.__emplace_back(C[2]);
+    }
+
+    tmp=max(PAIR[0],PAIR[1]);
+    happiness_value+=tmp;
+
+    PAIR.erase(PAIR.begin(),PAIR.end());
+
+    printf("%d\n",happiness_value);
 
     /* printf("%d\n",moving_cost_to_here[N-1]); */
-    puts("-----");
-    for(int i = 0; i<N; i++){
-        printf("%d\n",A[i]);
-    }
-    for(int i = 0; i<N; i++){
-        printf("%d\n",B[i]);
-    }
-    for(int i = 0; i<N; i++){
-        printf("%d\n",C[i]);
-    }
+    /* puts("-----"); */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",A[i]); */
+    /* } */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",B[i]); */
+    /* } */
+    /* for(int i = 0; i<N; i++){ */
+    /*     printf("%d\n",C[i]); */
+    /* } */
     return 0;
     // Dynamic Planning method is like a Recurrence formula.
 
